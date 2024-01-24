@@ -35,9 +35,9 @@ export const Home: React.FC = () => {
     <>
       {showLoading && <Loading />}
 
-      <Container maxWidth="xl">
-        <Card agents={agentesRandomizados} />
-      </Container>
+      {/* <Container maxWidth="xl"> */}
+      <Card agents={agentesRandomizados} />
+      {/* </Container> */}
     </>
   );
 };
