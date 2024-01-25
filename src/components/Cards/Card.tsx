@@ -3,17 +3,17 @@ import { Agent } from '@/@dtos';
 type CardProps = {
   agents: Agent[];
   onClick: () => void;
-  isExpanded: boolean;
+  isSelected: boolean;
 };
 
-export const Card: React.FC<CardProps> = ({ agents, onClick, isExpanded }) => {
+export const Card: React.FC<CardProps> = ({ agents, onClick, isSelected }) => {
   return (
     <div className="select-none">
       {agents.map((agent: Agent, index: number) => (
         <div
           key={index}
-          className={`bg-background w-64 h-[32rem] relative border border-t border-l border-transparent rounded-tl-xl overflow-hidden ${
-            isExpanded ? 'bg-white' : ''
+          className={`bg-background w-64 h-[32rem] relative border-2 border-t border-l border-background rounded-tl-xl overflow-hidden  transition-all duration-500 ${
+            isSelected ? 'bg-white scale-105' : ''
           }`}
           onClick={onClick}
         >
@@ -24,7 +24,11 @@ export const Card: React.FC<CardProps> = ({ agents, onClick, isExpanded }) => {
             >
               {agent.displayName}{' '}
             </span>
-            <span className="z-20 text-2xl font-bold uppercase text-white">
+            <span
+              className={`z-20 text-2xl font-bold uppercase  ${
+                isSelected ? 'text-background' : 'text-white'
+              }`}
+            >
               {agent.displayName}{' '}
             </span>
           </div>
@@ -35,7 +39,11 @@ export const Card: React.FC<CardProps> = ({ agents, onClick, isExpanded }) => {
           />
 
           <div
-            className={`flex gap-5 justify-center items-center absolute bottom-0 bg-background w-full h-12 border-2 border-white`}
+            className={`flex gap-5 justify-center items-center absolute bottom-0 w-full h-12   ${
+              isSelected
+                ? 'bg-white border-background border-t-2 border-0'
+                : 'bg-background border-white border-2'
+            }`}
           >
             {agent.abilities.map((ability, abilityIndex) =>
               agent.abilities.length > 4 ? null : (
@@ -44,6 +52,13 @@ export const Card: React.FC<CardProps> = ({ agents, onClick, isExpanded }) => {
                   src={ability.displayIcon}
                   alt={ability.displayName}
                   className="h-9"
+                  style={
+                    isSelected
+                      ? {
+                          filter: 'invert(100%)',
+                        }
+                      : { filter: 'invert(0%)' }
+                  }
                 />
               ),
             )}

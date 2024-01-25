@@ -1,21 +1,17 @@
-import { Ability, Agent } from '@/@dtos';
+import { Agent } from '@/@dtos';
 import { Card } from '@/components/Cards/Card';
 import { Skill } from '@/components/Cards/Skill';
 import { Loading } from '@/components/Loading';
 import { api, language } from '@/config';
 import React, { useEffect, useState } from 'react';
 
-type SelectedAgent = {
-  agent: Agent;
-  abilities: Ability[];
-};
+type HomeProps = {};
 
-export const Home: React.FC = () => {
+export const Home: React.FC<HomeProps> = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
   const [showLoading, setShowLoading] = useState(false);
-  const [selectedAgent, setSelectedAgent] = useState<SelectedAgent | null>(
-    null,
-  );
+  const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
+  const [selectedAgentKey, setSelectedAgentKey] = useState<string>('');
 
   const getAgents = async () => {
     setShowLoading(true);
@@ -35,10 +31,8 @@ export const Home: React.FC = () => {
   }, []);
 
   const handleCardClick = (agent: Agent) => {
-    setSelectedAgent({
-      agent,
-      abilities: agent.abilities,
-    });
+    setSelectedAgent(agent);
+    setSelectedAgentKey(`${agent.uuid}-${Date.now()}`);
   };
 
   return (
@@ -56,14 +50,17 @@ export const Home: React.FC = () => {
               key={index}
               agents={[agent]}
               onClick={() => handleCardClick(agent)}
-              isExpanded={selectedAgent?.agent === agent}
+              isSelected={selectedAgent?.uuid === agent.uuid}
             />
           ))}
         </div>
 
         {selectedAgent && (
           <div className="flex justify-end mt-10 mr-10">
-            <Skill abilities={selectedAgent.abilities} />
+            <Skill
+              abilities={selectedAgent.abilities}
+              selectedAgentKey={selectedAgentKey}
+            />
           </div>
         )}
       </div>
