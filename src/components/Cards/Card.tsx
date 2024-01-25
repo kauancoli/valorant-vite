@@ -2,15 +2,20 @@ import { Agent } from '@/@dtos';
 
 type CardProps = {
   agents: Agent[];
+  onClick: () => void;
+  isExpanded: boolean;
 };
 
-export const Card: React.FC<CardProps> = ({ agents }) => {
+export const Card: React.FC<CardProps> = ({ agents, onClick, isExpanded }) => {
   return (
-    <div className="p-10">
+    <div className="select-none">
       {agents.map((agent: Agent, index: number) => (
         <div
           key={index}
-          className="bg-background w-56 h-[28rem] relative border border-t border-l border-transparent rounded-tl-xl overflow-hidden"
+          className={`bg-background w-64 h-[32rem] relative border border-t border-l border-transparent rounded-tl-xl overflow-hidden ${
+            isExpanded ? 'bg-white' : ''
+          }`}
+          onClick={onClick}
         >
           <div className="p-2 absolute flex justify-center w-full">
             <span
@@ -26,17 +31,19 @@ export const Card: React.FC<CardProps> = ({ agents }) => {
           <img
             src={agent.fullPortrait}
             alt={agent.displayName}
-            className="h-[32rem] object-cover absolute -inset-0"
+            className="h-[40rem] object-cover absolute -inset-0 -top-8"
           />
 
-          <div className="flex gap-5 justify-center items-center absolute bottom-0 bg-background w-full h-12 border-2 border-white">
+          <div
+            className={`flex gap-5 justify-center items-center absolute bottom-0 bg-background w-full h-12 border-2 border-white`}
+          >
             {agent.abilities.map((ability, abilityIndex) =>
               agent.abilities.length > 4 ? null : (
                 <img
                   key={abilityIndex}
                   src={ability.displayIcon}
                   alt={ability.displayName}
-                  className="h-8"
+                  className="h-9"
                 />
               ),
             )}

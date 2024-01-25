@@ -89,9 +89,7 @@ export const Navbar = () => {
             alt="Avatar do Usuário"
             className="h-8 w-8 rounded-full"
           />
-          <span className="text-white text-xs font-bold ml-2">
-            Nome do Usuário
-          </span>
+          <span className="text-white text-xs font-bold ml-2">Kay</span>
         </div>
       </div>
     </nav>

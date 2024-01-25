@@ -25,11 +25,13 @@ export type Agent = {
     assetPath: string;
   };
   recruitmentData: any;
-  abilities: {
-    slot: string;
-    displayName: string;
-    description: string;
-    displayIcon: string;
-  }[];
+  abilities: Ability[];
   voiceLine: any;
+};
+
+export type Ability = {
+  slot: string;
+  displayName: string;
+  description: string;
+  displayIcon: string;
 };

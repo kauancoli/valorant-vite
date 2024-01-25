@@ -1,4 +1,4 @@
-import { Agent, Home } from '@/Pages/index';
+import { Agent, Home } from '@/pages/index';
 import React from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
