@@ -40,7 +40,7 @@ export const Skill: React.FC<SkillProps> = ({
       {abilities.map((ability, index) => (
         <motion.div
           key={`${selectedAgentKey}-${index}`}
-          className="bg-gray-200 p-4 border border-background border-t border-l border-transparent rounded-tl-xl shadow-md w-72 relative"
+          className="bg-gray-200 p-4 border border-background border-t-2 border-l-2 border-r-8 border-b-4  rounded-tl-xl shadow-md w-72 relative"
           initial={{ opacity: 0, y: -20, x: -20 }}
           animate={{ opacity: 1, y: 0, x: 0 }}
           exit={{ opacity: 0 }}
@@ -51,16 +51,17 @@ export const Skill: React.FC<SkillProps> = ({
             enterDelay={100}
             leaveDelay={200}
           >
-            <div className="flex items-center gap-5 mb-4 justify-between">
+            <div className="flex items-center gap-5 mb-4 justify-between ">
               <div>
-                <p className="text-lg font-semibold">
+                <p className="text-lg leading-6 font-bold">
                   {ability.displayName}
                   {` (${translateSlot(ability.slot)})`}
                 </p>
-                <p className="text-[0.7rem] max-h-10">
-                  {limitDescription(ability.description, 70)}
+                <p className="text-[0.7rem] max-h-10 mt-2">
+                  {limitDescription(ability.description, 65)}
                 </p>
               </div>
+
               <img
                 src={ability.displayIcon}
                 alt={ability.displayName}

@@ -15,7 +15,7 @@ export function Layout({ children }: LayoutProps) {
       }}
     >
       <Navbar />
-      {children}
+      <div className="z-10">{children}</div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { Agent, Home } from '@/pages/index';
 import React from 'react';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export const Router: React.FC = () => {
   return (
