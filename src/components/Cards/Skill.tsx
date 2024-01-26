@@ -40,7 +40,8 @@ export const Skill: React.FC<SkillProps> = ({
       {abilities.map((ability, index) => (
         <motion.div
           key={`${selectedAgentKey}-${index}`}
-          className="bg-gray-200 p-4 border border-background border-t-2 border-l-2 border-r-8 border-b-4  rounded-tl-xl shadow-md w-72 relative"
+          className="bg-gray-200 p-4 border border-background border-t-2 border-l-2 border-r-8 border-b-4 rounded-tl-xl shadow-md relative
+          2xl:w-72 2xl:h-36 xl:w-60 xl:h-32 lg:w-56 lg:h-20"
           initial={{ opacity: 0, y: -20, x: -20 }}
           animate={{ opacity: 1, y: 0, x: 0 }}
           exit={{ opacity: 0 }}
@@ -51,13 +52,13 @@ export const Skill: React.FC<SkillProps> = ({
             enterDelay={100}
             leaveDelay={200}
           >
-            <div className="flex items-center gap-5 mb-4 justify-between ">
+            <div className="flex items-center gap-5 mb-4 justify-between">
               <div>
-                <p className="text-lg leading-6 font-bold">
+                <p className="2xl:text-lg 2xl:leading-6 xl:text-md xl:leading-5  lg:text-md lg:leading-5 font-bold">
                   {ability.displayName}
                   {` (${translateSlot(ability.slot)})`}
                 </p>
-                <p className="text-[0.7rem] max-h-10 mt-2">
+                <p className=" max-h-10 mt-2 2xl:text-[0.6rem] xl:text-[0.6rem] xl:block lg:hidden">
                   {limitDescription(ability.description, 65)}
                 </p>
               </div>
@@ -65,7 +66,7 @@ export const Skill: React.FC<SkillProps> = ({
               <img
                 src={ability.displayIcon}
                 alt={ability.displayName}
-                className="w-20 h-20 mr-2 rounded-md"
+                className="2xl:w-20 2xl:h-20 2xl:mr-2 xl:w-12 xl:h-12 xl:mr-0 lg:w-10 lg:h-10 rounded-md"
                 style={{ filter: 'invert(100%)' }}
               />
             </div>

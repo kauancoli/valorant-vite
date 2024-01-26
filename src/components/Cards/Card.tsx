@@ -12,8 +12,9 @@ export const Card: React.FC<CardProps> = ({ agents, onClick, isSelected }) => {
       {agents.map((agent: Agent, index: number) => (
         <div
           key={index}
-          className={` w-64 h-[32rem] relative border-2 border-t border-l border-background rounded-tl-xl overflow-hidden  transition-all duration-500 cursor-pointer hover:opacity-90
-          } ${isSelected ? 'bg-white scale-105' : 'bg-background'}`}
+          className={` 2xl:w-64 2xl:h-[32rem] xl:w-52 xl:h-[28rem] w-48 h-[24rem] relative border-2 border-t border-l border-background rounded-tl-xl overflow-hidden  transition-all duration-500 cursor-pointer hover:opacity-90 ${
+            isSelected ? 'bg-white scale-105' : 'bg-background scale-100'
+          }`}
           onClick={onClick}
         >
           <div className="p-2 absolute flex justify-center w-full">
@@ -28,7 +29,7 @@ export const Card: React.FC<CardProps> = ({ agents, onClick, isSelected }) => {
           <img
             src={agent.fullPortrait}
             alt={agent.displayName}
-            className="h-[40rem] object-cover absolute -inset-0 -top-8"
+            className="xl:h-[40rem] h-[32rem] object-cover absolute -inset-0 -top-8"
           />
 
           <div
@@ -44,7 +45,7 @@ export const Card: React.FC<CardProps> = ({ agents, onClick, isSelected }) => {
                   key={abilityIndex}
                   src={ability.displayIcon}
                   alt={ability.displayName}
-                  className="h-9"
+                  className="2xl:h-9 xl:h-7 h-6"
                   style={
                     isSelected
                       ? {

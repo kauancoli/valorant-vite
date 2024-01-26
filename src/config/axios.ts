@@ -6,4 +6,4 @@ export const api = axios.create({
   baseURL: baseURL,
 });
 
-export const language = '?language=pt-BR';
+export const language = '?isPlayableCharacter=true&language=pt-BR';

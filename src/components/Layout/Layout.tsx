@@ -7,15 +7,16 @@ type LayoutProps = {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div
-      className="bg-accent"
-      style={{
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
+    <div className="z-20">
       <Navbar />
-      <div className="z-10">{children}</div>
+      <div
+        style={{
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }

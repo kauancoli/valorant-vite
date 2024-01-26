@@ -1,5 +1,6 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 type NavbarItemProps = {
   text: string;
@@ -21,7 +22,7 @@ const NavbarItem: React.FC<NavbarItemProps> = ({ text, href }) => {
     >
       <a
         href={href}
-        className="text-white text-sm font-bold hover:text-gray-500 uppercase p-2"
+        className="text-white 2xl:text-sm xl:text-xs lg:text-[0.65rem] font-bold hover:text-gray-500 uppercase p-2"
       >
         {text}
       </a>
@@ -33,11 +34,11 @@ export const Navbar = () => {
   return (
     <nav className="bg-background p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 cursor-pointer">
           <motion.img
             src="riot.svg"
             alt="Logo Riot Games"
-            className="h-8 w-14"
+            className="2xl:h-8 2xl:w-14 xl:h-7 xl:w-12 lg:h-6 lg:w-10 h-5 w-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           />
@@ -55,7 +56,7 @@ export const Navbar = () => {
           />
         </div>
 
-        <div className="flex space-x-8 text-tra">
+        <div className="flex 2xl:space-x-8 xl:space-x-2lg:space-x-0">
           <NavbarItem text="Game" href="#" />
           <NavbarItem text="Champions" href="#" />
           <NavbarItem text="News" href="#" />
@@ -71,7 +72,7 @@ export const Navbar = () => {
           <motion.img
             src="logo.svg"
             alt="Avatar do Usuário"
-            className="h-8 w-8 rounded-full transition duration-300 ease-in-out "
+            className="2xl:h-8 2xl:w-8 xl:h-6 xl:w-6 lg:h-4 lg:w-4 rounded-full transition duration-300 ease-in-out "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           />
