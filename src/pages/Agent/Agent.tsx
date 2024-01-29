@@ -67,7 +67,7 @@ export const AgentPage: React.FC<AgentPageProps> = () => {
           />
 
           <div className="flex flex-row">
-            <div className="bg-white relative w-[50rem] h-fit top-14 left-44 p-8 flex flex-col gap-12">
+            <div className="bg-white relative w-[50rem] h-fit top-14 left-44 p-8 flex flex-col gap-12 rounded-sm">
               <div>
                 <div className="flex items-center gap-5">
                   <h1 className="text-background text-8xl font-bold transform uppercase select-none">
@@ -80,7 +80,7 @@ export const AgentPage: React.FC<AgentPageProps> = () => {
                     onLoad={() => setImageLoaded(true)}
                   />
                 </div>
-                <h2 className="text-accent text-2xl font-bold select-none -mt-3 mb-4">
+                <h2 className="text-accent text-2xl font-bold select-none -mt-3 mb-4 ml-2">
                   {agent?.developerName}
                 </h2>
                 <p>{agent?.description}</p>
@@ -136,13 +136,13 @@ export const AgentPage: React.FC<AgentPageProps> = () => {
               style={{ filter: 'invert(100%)' }}
               onLoad={() => setImageLoaded(true)}
             />
-            <img
-              src={agent?.fullPortrait}
-              alt={agent?.displayName}
-              className="w-fit h-fit absolute left-[30rem] -top-56 select-none"
-              onLoad={() => setImageLoaded(true)}
-            />
           </div>
+          <img
+            src={agent?.fullPortrait}
+            alt={agent?.displayName}
+            className="w-fit h-fit absolute left-[30rem] -top-56 select-none"
+            onLoad={() => setImageLoaded(true)}
+          />
         </div>
       )}
     </div>
