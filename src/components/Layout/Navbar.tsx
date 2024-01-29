@@ -1,6 +1,5 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 type NavbarItemProps = {
   text: string;
@@ -34,7 +33,7 @@ export const Navbar = () => {
   return (
     <nav className="bg-background p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-4 cursor-pointer">
+        <a className="flex items-center space-x-4 cursor-pointer" href="/">
           <motion.img
             src="riot.svg"
             alt="Logo Riot Games"
@@ -54,7 +53,7 @@ export const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           />
-        </div>
+        </a>
 
         <div className="flex 2xl:space-x-8 xl:space-x-2lg:space-x-0">
           <NavbarItem text="Game" href="#" />
