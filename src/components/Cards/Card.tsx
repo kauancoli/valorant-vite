@@ -2,8 +2,8 @@ import { Agent } from '@/@dtos';
 
 type CardProps = {
   agents: Agent[];
-  onClick: () => void;
-  isSelected: boolean;
+  onClick?: () => void;
+  isSelected?: boolean;
 };
 
 export const Card: React.FC<CardProps> = ({ agents, onClick, isSelected }) => {

@@ -20,9 +20,10 @@
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@pages/*": ["src/Pages/index*"],
       "@config/*": ["src/config/*"],
-      "@router/*": ["src/router/*"]
+      "@pages/*": ["src/Pages/index*"],
+      "@router/*": ["src/router/*"],
+      "@service/*": ["src/service/*"]
     }
   },
   "include": ["src"],
