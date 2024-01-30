@@ -57,7 +57,7 @@ export const Navbar = () => {
 
         <div className="flex 2xl:space-x-8 xl:space-x-2lg:space-x-0">
           <NavbarItem text="Game" href="#" />
-          <NavbarItem text="Champions" href="#" />
+          <NavbarItem text="Champions" href="/agents" />
           <NavbarItem text="News" href="#" />
           <NavbarItem text="Patch Notes" href="#" />
           <NavbarItem text="Discover" href="#" />

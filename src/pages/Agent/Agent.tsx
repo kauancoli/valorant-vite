@@ -2,6 +2,7 @@ import { Agent } from '@/@dtos';
 import { Loading } from '@/components/Loading';
 import { api, language } from '@/config';
 import { getAgentMapping } from '@/service/agentService';
+import { Tooltip } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -88,7 +89,7 @@ export const AgentPage: React.FC<AgentPageProps> = () => {
 
               <div className="flex flex-col gap-5">
                 <h1 className="text-background text-4xl font-bold select-none">
-                  Posição
+                  Função
                 </h1>
                 <div className="flex items-center gap-5">
                   <img
@@ -107,7 +108,7 @@ export const AgentPage: React.FC<AgentPageProps> = () => {
                 </div>
               </div>
 
-              <div className="flex justify-around gap-10 bg-background p-4">
+              <div className="flex justify-around gap-10 bg-background p-4 via-zinc-300">
                 {agent?.abilities.slice(0, 4).map((ability, abilityIndex) => (
                   <div className="flex items-center gap-10">
                     <div
